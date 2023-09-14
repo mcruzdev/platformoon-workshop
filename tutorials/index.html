@@ -496,35 +496,35 @@
 
 <h1 id="creating-a-kubernetes-cluster-in-docker-cluster-with-ingress-controller">Creating a Kubernetes cluster in Docker cluster with Ingress Controller</h1>
 <p>More details about the following steps can be found <a href="https://kind.sigs.k8s.io/docs/user/ingress/">here</a>.
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | kind create cluster --name dev --config=-</span>
-<span class="s">kind: Cluster</span>
-<span class="s">apiVersion: kind.x-k8s.io/v1alpha4</span>
-<span class="s">nodes:</span>
-<span class="s">- role: control-plane</span>
-<span class="s">  kubeadmConfigPatches:</span>
-<span class="s">  - |</span>
-<span class="s">    kind: InitConfiguration</span>
-<span class="s">    nodeRegistration:</span>
-<span class="s">      kubeletExtraArgs:</span>
-<span class="s">        node-labels: &quot;ingress-ready=true&quot;</span>
-<span class="s">  extraPortMappings:</span>
-<span class="s">  - containerPort: 80</span>
-<span class="s">    hostPort: 80</span>
-<span class="s">    protocol: TCP</span>
-<span class="s">  - containerPort: 443</span>
-<span class="s">    hostPort: 443</span>
-<span class="s">    protocol: TCP</span>
-<span class="s">- role: worker</span>
-<span class="s">- role: worker</span>
-<span class="s">- role: worker</span>
-<span class="s">EOF</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | kind create cluster --name dev --config=-</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s">kind: Cluster</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">apiVersion: kind.x-k8s.io/v1alpha4</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s">nodes:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s">- role: control-plane</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s">  kubeadmConfigPatches:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s">  - |</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s">    kind: InitConfiguration</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s">    nodeRegistration:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s">      kubeletExtraArgs:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s">        node-labels: &quot;ingress-ready=true&quot;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s">  extraPortMappings:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s">  - containerPort: 80</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s">    hostPort: 80</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s">    protocol: TCP</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="s">  - containerPort: 443</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="s">    hostPort: 443</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s">    protocol: TCP</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="s">- role: worker</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="s">- role: worker</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="s">- role: worker</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="s">EOF</span>
+</span></code></pre></div></p>
 <p>After you need to set up the context.</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev
+</span></code></pre></div>
 <h2 id="installing-the-nginx-ingress-controller">Installing the NGINX Ingress Controller</h2>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+</span></code></pre></div>
 
 
 
