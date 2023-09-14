@@ -1,6 +1,8 @@
 site_name: Platformoon
-theme: material
-
+theme: 
+  name: material
+  features:
+    - content.code.copy
 markdown_extensions:
   - admonition
   - pymdownx.details
