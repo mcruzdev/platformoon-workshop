@@ -1,0 +1,22 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: build-event-listener
+spec:
+  serviceAccountName: tekton-triggers-sa
+  triggers:
+    - name: platformoon-api-trigger
+      interceptors:
+        - ref:
+            name: "cel"
+            kind: ClusterInterceptor
+            apiVersion: triggers.tekton.dev
+          params:
+            - name: "filter"
+              value: >
+                body.action == 'build'
+      bindings:
+        - ref: build-trigger-binding
+      template:
+        ref: build-trigger-template
+      

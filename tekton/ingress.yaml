@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tekton-ingress
+  labels:
+    name: tekton-ingress
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/tekton"
+        backend:
+          service:
+            name: el-build-event-listener
+            port: 
+              number: 8080

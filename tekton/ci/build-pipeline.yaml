@@ -1,0 +1,60 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-pipeline
+spec:
+  workspaces:
+  - name: source-ws
+  - name: cache-ws
+  - name: dockerconfig-ws
+  params:
+    - name: source-url
+      description: The URL of the source to build
+    - name: source-revision
+      description: The revision of the source to build
+  tasks:
+    - name: hello-world
+      params:
+        - name: source-url
+          value: $(params.source-url)
+        - name: source-revision
+          value: $(params.source-revision)
+      taskSpec:
+        steps:
+        - name: echo
+          image: ubuntu
+          command:
+          - echo
+          args:
+          - "Hello World!"
+    - name: fetch-source
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.source-url)
+        - name: deleteExisting
+          value: "true"
+      workspaces:
+      - name: output
+        workspace: source-ws
+    - name: build-image
+      taskRef:
+        name: buildpacks
+      runAfter:
+        - fetch-source
+      workspaces:
+        - name: source
+          workspace: source-ws
+        - name: cache
+          workspace: cache-ws
+        - name: dockerconfig
+          workspace: dockerconfig-ws
+      params:
+        - name: APP_IMAGE
+          value: "docker.io/matheuscruzdev/destroyer-server"
+        - name: SOURCE_SUBPATH
+          value: apps
+        - name: BUILD_IMAGE
+          value: "paketobuildpacks/builder:base"
+

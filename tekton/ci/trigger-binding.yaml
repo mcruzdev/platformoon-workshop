@@ -1,0 +1,10 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: build-trigger-binding
+spec:
+  params:
+    - name: source-url
+      value: $(body.url)
+    - name: source-revision
+      value: $(body.revision)

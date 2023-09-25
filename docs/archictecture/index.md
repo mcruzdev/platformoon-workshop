@@ -9,10 +9,9 @@ I will use a monolithic architecture to create the platform. Is simple to start 
 The architecture will be composed of the following components:
 
 - Kubernetes Cluster
-- Platformoon API (GoLang)
+- Platformoon API (Java/Quarkus)
 - Platformoon Frontend (NextJS)
 - Platformoon CLI (GoLang)
-- Platformoon Pipelines
 - Platformoon Documentation (mkdocs)
 - Keycloak
 

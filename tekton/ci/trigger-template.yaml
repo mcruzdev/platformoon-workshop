@@ -1,0 +1,51 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: build-trigger-template
+spec:
+  params:
+    - name: source-url
+      description: The URL of the source to build
+    - name: source-revision
+      description: The revision of the source to build
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: build-pipeline-run-
+    spec:
+      pipelineRef:
+        name: build-pipeline
+      podTemplate:
+        securityContext:
+          fsGroup: 65532
+      workspaces:
+      - name: source-ws
+        volumeClaimTemplate:
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - name: cache-ws
+        volumeClaimTemplate:
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - name: dockerconfig-ws
+        volumeClaimTemplate:
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 500Mi
+      params:
+      - name: source-url
+        value: $(tt.params.source-url)
+      - name: source-revision
+        value: $(tt.params.source-revision)
