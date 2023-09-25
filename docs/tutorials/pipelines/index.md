@@ -70,12 +70,14 @@ Now we have a webhook configured and we can run the pipeline using the following
 
 ```bash
 curl --request POST \
-  --url http://localhost/tekton \
+  --url http://localhost/tkn/webhook \
   --header 'Content-Type: application/json' \
-  --header 'User-Agent: insomnia/2023.5.8' \
   --data '{
 	"url": "https://github.com/platformoon/destroyer-server.git",
 	"revision": "main",
+	"applicationName": "destroyer-server",
 	"action": "build"
 }'
 ```
+
+You can see the pipeline running at [http://tekton.localhost](http://tekton.localhost).

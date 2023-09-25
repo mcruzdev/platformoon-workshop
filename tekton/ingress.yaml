@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: tekton.localhost
+  - host: localhost
     http:
       paths:
       - pathType: Prefix
