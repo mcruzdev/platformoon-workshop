@@ -4,29 +4,16 @@ metadata:
   name: build-pipeline
 spec:
   workspaces:
-  - name: source-ws
-  - name: cache-ws
-  - name: dockerconfig-ws
+    - name: shared-data
+    - name: dockerconfig
   params:
     - name: source-url
       description: The URL of the source to build
     - name: source-revision
       description: The revision of the source to build
+    - name: app-name
+      description: The name of the app to build
   tasks:
-    - name: hello-world
-      params:
-        - name: source-url
-          value: $(params.source-url)
-        - name: source-revision
-          value: $(params.source-revision)
-      taskSpec:
-        steps:
-        - name: echo
-          image: ubuntu
-          command:
-          - echo
-          args:
-          - "Hello World!"
     - name: fetch-source
       taskRef:
         name: git-clone
@@ -37,7 +24,7 @@ spec:
           value: "true"
       workspaces:
       - name: output
-        workspace: source-ws
+        workspace: shared-data
     - name: build-image
       taskRef:
         name: buildpacks
@@ -45,16 +32,11 @@ spec:
         - fetch-source
       workspaces:
         - name: source
-          workspace: source-ws
-        - name: cache
-          workspace: cache-ws
+          workspace: shared-data
         - name: dockerconfig
-          workspace: dockerconfig-ws
+          workspace: dockerconfig
       params:
-        - name: APP_IMAGE
-          value: "docker.io/matheuscruzdev/destroyer-server"
-        - name: SOURCE_SUBPATH
-          value: apps
-        - name: BUILD_IMAGE
-          value: "paketobuildpacks/builder:base"
-
+      - name: APP_IMAGE
+        value: docker.io/matheuscruzdev/$(params.app-name)
+      - name: BUILDER_IMAGE
+        value: heroku/buildpacks:20

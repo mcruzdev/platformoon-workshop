@@ -8,6 +8,8 @@ spec:
       description: The URL of the source to build
     - name: source-revision
       description: The revision of the source to build
+    - name: app-name
+      description: The name of the app to build
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
@@ -20,7 +22,7 @@ spec:
         securityContext:
           fsGroup: 65532
       workspaces:
-      - name: source-ws
+      - name: shared-data
         volumeClaimTemplate:
           spec:
             accessModes:
@@ -28,24 +30,14 @@ spec:
             resources:
               requests:
                 storage: 1Gi
-      - name: cache-ws
-        volumeClaimTemplate:
-          spec:
-            accessModes:
-            - ReadWriteOnce
-            resources:
-              requests:
-                storage: 1Gi
-      - name: dockerconfig-ws
-        volumeClaimTemplate:
-          spec:
-            accessModes:
-            - ReadWriteOnce
-            resources:
-              requests:
-                storage: 500Mi
+      - name: dockerconfig
+        secret: 
+          secretName: dockerconfig-secret    
       params:
       - name: source-url
         value: $(tt.params.source-url)
       - name: source-revision
         value: $(tt.params.source-revision)
+      - name: app-name
+        value: $(tt.params.app-name)
+      

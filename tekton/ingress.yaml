@@ -5,14 +5,35 @@ metadata:
   labels:
     name: tekton-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: localhost
     http:
       paths:
       - pathType: Prefix
-        path: "/tekton"
+        path: /tkn/webhook
         backend:
           service:
             name: el-build-event-listener
             port: 
               number: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tekton-dashboard-ingress
+  labels:
+    name: tekton-dashboard-ingress
+  namespace: tekton-pipelines
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tekton-dashboard
+            port: 
+              number: 9097

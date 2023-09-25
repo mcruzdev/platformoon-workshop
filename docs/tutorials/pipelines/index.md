@@ -6,6 +6,13 @@ We are use KinD installed on this tutorial [Installing KinD](../../tutorials/ind
 
 ## Installing Tekton
 
+### Why Tekton?
+
+I wanted to learn more about Tekton and I decided to use it on this project. Tekton is a powerful and flexible open-source framework for creating CI/CD systems, allowing developers to build, test, and deploy across cloud providers and on-premise systems. It is built on Kubernetes, providing the benefits of an open-source, cloud-native experience from pipeline creation to execution.
+
+
+For more details see the official [documentation](https://tekton.dev/docs/concepts/overview/).
+
 ## Intalling Tekton Pipelines
 
 ```bash
@@ -33,7 +40,7 @@ You can access the dashboard using the following command:
 kubectl port-forward svc/tekton-dashboard  -n tekton-pipelines 9097:9097
 ```
 
-## Installing git-clone task from Tekton Hub
+## Installing git-clone and buildpacks tasks from Tekton Hub
 
 In this step we will install two tekton tasks from Tekton Hub, the git-clone and the buildpacks.
 

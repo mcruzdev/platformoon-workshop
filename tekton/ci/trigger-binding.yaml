@@ -8,3 +8,5 @@ spec:
       value: $(body.url)
     - name: source-revision
       value: $(body.revision)
+    - name: app-name
+      value: $(body.applicationName)
