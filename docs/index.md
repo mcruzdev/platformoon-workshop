@@ -8,7 +8,7 @@ This repository is a collection of documents that explain the different parts of
 
 I am a Software Engineer at MercadoLibre and I am working on the Cloud & Platform TEAM creating developer toolings on top of Fury (an internal platform here), it is a great experience for me. 
 
-With this initiative I want to learn more about Kubernetes, Dagger, Crossplane, ArgoCD, etc. I want to create my own platform to learn more about CNCF toolings and to share it.
+With this initiative I want to build a simple an IDP skeleton to learn more about CNCF toolings and to share it with you!
 
 !!! Disclaimer
 
