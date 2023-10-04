@@ -44,7 +44,7 @@ If you'd like to contribute to this documentation, follow these steps:
 
 2. Create a new branch for your changes:
     ```bash
-    git checkout -b feature/add-new-docs
+    git checkout -b add-new-docs
     ```
 3. Make your changes to the documentation.
 
@@ -54,6 +54,6 @@ If you'd like to contribute to this documentation, follow these steps:
     ```bash
     git add .
     git commit -m "Add new documentation"
-    git push origin feature/add-new-docs
+    git push origin add-new-docs
    ```
 6. Create a Pull Request (PR) on the original repository, explaining your changes and why they should be merged.
