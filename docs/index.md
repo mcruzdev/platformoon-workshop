@@ -12,7 +12,7 @@ With this initiative I want to learn more about Kubernetes, Dagger, Crossplane, 
 
 !!! Disclaimer
 
-    I know that it is not a real platform, but I want to learn more about this topic and I want to create my own platform to learn more about CNCF toolings and to share it.
+    I know that it is not a real platform, but I want to learn more about this topic and I want to learn more about CNCF toolings and to share it with you.
 
 ## Platform Engineering on Kubernetes Book
 
