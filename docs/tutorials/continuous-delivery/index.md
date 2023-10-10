@@ -75,7 +75,7 @@ The `http` say to the `ngrok` to use HTTP protocol and the 8080 indicates to pro
 Introducing Always-On Global Server Load Balancer: https://ngrok.com/r/gslb                                                                           
                                                                                                                                                       
 Session Status                online                                                                                                                  
-Account                       matheuscruz.dev@gmail.com (Plan: Free)                                                                                  
+Account                       email@gmail.com (Plan: Free)                                                                                  
 Version                       3.3.5                                                                                                                   
 Region                        South America (sa)                                                                                                      
 Latency                       13ms                                                                                                                    
@@ -100,6 +100,7 @@ Now, that we have the URL necessary to send the Webhook to our platform, let's c
 
 5. Add the Payload URL with the `ngrok` URL (in my case was necessary to add the path `/gh/webhooks` for listen it).
 
-6. Click on `Add webhook` button to save.
+6. Select `Let me select individual events`, we need just to listen tag creation and  
+7. Click on `Add webhook` button to save.
 
 Done, now we can listen for all Github events and manage it.
