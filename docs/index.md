@@ -1,12 +1,12 @@
 # Introduction
 
-The goal of this repository is to document the creation of a simple Internal Developer Platform for me (Platformoon). 
+The goal of this repository is to document the creation of a simple Internal Developer Platform for me. I will call this platform as Platformoon.
 
 This repository is a collection of documents that explain the different parts of the platform, decisions, and how I build it.
 
 ## Why?
 
-I am a Software Engineer at MercadoLibre and I am working on the Cloud & Platform TEAM creating developer toolings on top of Fury (an internal platform here), it is a great experience for me. 
+I am a Software Engineer at MercadoLibre, I am working on the Cloud & Platform TEAM creating developer toolings on top of Fury (an internal platform here), it is a great experience for me. 
 
 With this initiative I want to build a simple an IDP skeleton to learn more about CNCF toolings and to share it with you!
 

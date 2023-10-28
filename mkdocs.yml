@@ -1,8 +1,35 @@
 site_name: Platformoon
+
+nav:
+  - Getting Started:
+    - index.md
+    - Understanding the use cases:
+      - 'use-cases/index.md'
+  - Tutorials:
+    - Creating a GoLang CLI with Cobra:
+      - 'tutorials/creating-a-golang-cli-with-cobra/index.md'
+    - Creating a Quarkus REST API:
+      - 'tutorials/creating-a-quarkus-rest-api/index.md'
+    - Calling REST API using GoLang:
+      - 'tutorials/calling-rest-api-using-go-lang/index.md'
 theme: 
+  language: en
   name: material
   features:
     - content.code.copy
+    - content.code.annotate
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -14,3 +41,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+
+plugins: 
+  - search
