@@ -148,6 +148,10 @@ func NewApplicationCreateCmd() *cobra.Command { // (4)
 3.	Add `create` command as `application` subcommand
 4.	Create `create` command 
 
+!!! NOTE
+
+	The Cobra documentation recommends organizing the subcommands in a slightly different way, for didactic purposes, and to fit within this tutorial, we will place them in the same file. See more details [here](https://github.com/spf13/cobra/blob/main/site/content/user_guide.md#organizing-subcommands).
+
 ### Building the application
 
 To test how the end user experience will be, let's build our CLI.
