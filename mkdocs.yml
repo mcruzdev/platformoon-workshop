@@ -6,18 +6,28 @@ nav:
     - Understanding the use cases:
       - 'use-cases/index.md'
   - Tutorials:
-    - Creating a GoLang CLI with Cobra:
-      - 'tutorials/creating-a-golang-cli-with-cobra/index.md'
-    - Creating a Quarkus REST API:
-      - 'tutorials/creating-a-quarkus-rest-api/index.md'
-    - Calling REST API using GoLang:
-      - 'tutorials/calling-rest-api-using-go-lang/index.md'
+    - Platformoon CLI:
+      - Creating a GoLang CLI with Cobra:
+        - 'tutorials/creating-a-golang-cli-with-cobra/index.md'
+      - Calling REST API using GoLang:
+        - 'tutorials/calling-rest-api-using-go-lang/index.md'
+      - Using parameters on Cobra CLI:
+        - 'tutorials/using-parameters-on-cobra-cli/index.md'
+    - Platformoon API:
+      - Creating a Quarkus REST API:
+        - 'tutorials/creating-a-quarkus-rest-api/index.md'
+    
 theme: 
   language: en
   name: material
   features:
     - content.code.copy
     - content.code.annotate
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.footer
   palette:
     # Palette toggle for light mode
     - scheme: default

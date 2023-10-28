@@ -1,4 +1,4 @@
-# Hands-On
+# Creating a GoLang with Cobra: Hands-On
 
 In this tutorial, we will create a command-line application in GoLang.
 

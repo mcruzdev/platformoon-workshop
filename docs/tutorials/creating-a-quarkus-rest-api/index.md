@@ -1,4 +1,4 @@
-# Hands-On
+# Creating a Quarkus REST API: Hands-On
 
 In this tutorial, we will create a Quakus REST API with Java.
 
